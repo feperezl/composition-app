@@ -2,9 +2,11 @@
 
 import pokemonApi from '../api/pokemonApi';
 
+pokemonApi.get('/pokemon?limit=45') 
+    .then( resp => console.log(resp.data.results[0].pokename()) 
 
-pokemonApi.get('/pokemon?limit=45')
-    .then( data => console.log(resp.data)
+
+
 </script>
 <template>
     <div>
