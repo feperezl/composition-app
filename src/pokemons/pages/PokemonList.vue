@@ -1,21 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { usePokemons } from '@/pokemons/composables/usePokemons';
 
-import { getPokemons } from '../helpers/get-pokemons';
-import type { Pokemon } from '../interfaces/pokemon';
-
-
-const  data = await getPokemons();
-
-const pokemons = ref<Pokemon[]>( data );
-
-// getPokemons()
-//     .then( (data) => pokemons.value = data);
-
+const { count, pokemons, isLoading } = usePokemons();
 </script>
 <template>
     <div>
-        <h1>Pokemon List</h1>
+        <h1>Pokemon List - ({{ count }})</h1>
+
+        <h3 v-if="isLoading">Cargando</h3>
 
         <ul>
             <li 

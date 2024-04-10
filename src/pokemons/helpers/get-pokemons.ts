@@ -9,7 +9,8 @@ import axios from 'axios';
 
 export const getPokemons = async(): Promise<Pokemon[]> => {
 
-        
+    await sleep(2);
+    
     const { data } = await pokemonApi.get('/pokemon?limit=45')
 
     const pokemonPromises: Promise<Pokemon>[] = [];
