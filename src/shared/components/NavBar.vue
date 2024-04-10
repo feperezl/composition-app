@@ -5,21 +5,25 @@ import { defineProps, withDefaults } from 'vue';
 interface Props {
     title?: string;
     links: RouterLink[];
+    isSecondary: boolean;
 }
 
 withDefaults(defineProps<Props>(), {
-    title: 'CompoApp'
+    title: 'CompoApp',
+    isSecondary: false,
 
-})
+});
 
 
 </script>
 
 <template>
     <nav>
-        <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="25" height="25" />
-        <!-- <span v-if="$props.title"> {{ title }}</span> -->
-        <span> {{ $props.title }}</span>
+        <template v-if="!$props.isSecondary">
+            <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="25" height="25" />
+            <!-- <span v-if="$props.title"> {{ title }}</span> -->
+            <span> {{ $props.title }}</span>
+        </template>
 
         <RouterLink v-for="link of $props.links" :key="link.path" :to="link.path">
             {{ link.title }}
