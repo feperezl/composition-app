@@ -2,9 +2,10 @@
 import { ref } from 'vue';
 
 const counter = ref(0);
-const increase = () => counter.value++;
-const decrease = () => counter.value--;
-
+const increase = () =>
+    counter.value++;
+const decrease = () =>
+    counter.value--;
 
 </script>
 
